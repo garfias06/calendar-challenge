@@ -8,7 +8,7 @@ var timeBlock=$('.time-block');
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-$(function () {
+// $(function () {
 
   // Display current day at top of the calendar
   function currentDay() {
@@ -27,14 +27,18 @@ $(function () {
   });
   // militarytime as an option 
   
-  var mTime=dayjs().hour();
+  var mTime=10;
+  // dayjs().hour();
   console.log(mTime);
   // Comparing if time-block should be past, present or future.
   // var hoursNumber=parseInt($(this).parent().attr('id'));
   function timeBlockColor() {
     // Is there any other way to make this shorter?
-    var hourShift=parseInt($(this).attr("id").split("-")[1]);
-  
+    var hourShift=parseInt($(this).attr("id")).toString()
+    hourShift.split("-")[1];
+
+    console.log(hourShift);
+  // Why cant i use my var timeBlock, split and NaN 
   if (mTime==hourShift){
     timeBlock.addClass('present');
   }else if(mTime>hourShift){
@@ -43,6 +47,7 @@ $(function () {
     timeBlock.addClass('past');
   }
   }
+  
   // Loop through HTML DOM 
   timeBlockColor();
   
@@ -58,7 +63,7 @@ $(function () {
   $('#hour-16 .description').val(localStorage.getItem('15'));
   $('#hour-17 .description').val(localStorage.getItem('16'));
 
-});
+// });
 
 
   // TODO: Add a listener for click events on the save button. This code should
