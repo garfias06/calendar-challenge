@@ -24,7 +24,7 @@ var mTime = dayjs().hour();
 $('.time-block').each(function () {
 
   var hourShift = parseInt($(this).attr("id").split("-")[1])
-
+// Adding class attributes for past. present and future
   if (hourShift < mTime) {
     $(this).removeClass('present');
     $(this).addClass('past');
@@ -41,6 +41,7 @@ $('.time-block').each(function () {
 
 });
 
+// Iterating local storage to get items and display them on the task scheduler
 for (var i = 8; i < 17; i++) {
    $('#hour-'+i+' .description').val(localStorage.getItem(i));
   
